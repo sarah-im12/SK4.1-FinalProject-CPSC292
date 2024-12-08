@@ -23,4 +23,9 @@ ballot.Approve <- ballot.data %>%
   select(startdate, dem) %>%
   na.omit()
 
+ballot.Approve$startdate <- as.Date(ballot.Approve$startdate, format = "%m/%d/%Y")
+origin_date <- as.Date("11/21/2020", format = "%m/%d/%Y")
+ballot.Approve$days_since_origin <- as.numeric(ballot.Approve$startdate - origin_date)
+
+ballot.Approve
 ```
