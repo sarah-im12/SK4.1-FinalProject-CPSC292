@@ -29,3 +29,10 @@ ballot.Approve$days_since_origin <- as.numeric(ballot.Approve$startdate - origin
 
 ballot.Approve
 ```
+### Further converted data set format for easier plotting 
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+ballot.Approve
+ballot.wide <- pivot_wider(ballot.Approve, names_from = startdate, values_from = dem, values_fn=mean) 
+ballot.wide
+```
