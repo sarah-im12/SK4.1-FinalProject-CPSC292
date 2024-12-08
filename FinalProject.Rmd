@@ -35,4 +35,7 @@ ballot.Approve
 ballot.Approve
 ballot.wide <- pivot_wider(ballot.Approve, names_from = startdate, values_from = dem, values_fn=mean) 
 ballot.wide
+
+ballot.long <- pivot_longer(ballot.wide, cols = !days_since_origin, names_to = "startdate", values_to = "dem")
+
 ```
