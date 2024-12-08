@@ -1,0 +1,10 @@
+---
+title: "FinalProject"
+author: "Sarah Im" 
+output: html_document
+date: "2024-12-04"
+---
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+
+```
