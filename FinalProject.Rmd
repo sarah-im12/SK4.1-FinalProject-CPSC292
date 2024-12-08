@@ -14,7 +14,13 @@ library(janitor)
 library(ggplot2)
 library(dplyr)
 ```
-### Cleaning Raw Data
+### Importing and Cleaning Raw Data
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
+ballot.data <- read.csv("data/generic_polllist (1).csv")
+
+ballot.Approve <- ballot.data %>%
+  clean_names() %>%
+  select(startdate, dem) %>%
+  na.omit()
 
 ```
