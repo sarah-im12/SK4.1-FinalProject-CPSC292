@@ -1,9 +1,19 @@
 ---
-title: "FinalProject"
+title: "Final Project - SK4.1"
 author: "Sarah Im" 
 output: html_document
 date: "2024-12-04"
 ---
+
+## Do voters want Republicans or Democrats in Congress? 
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+# Loading required libraries
+library(tidyr)
+library(janitor)
+library(ggplot2)
+library(dplyr)
+```
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 
