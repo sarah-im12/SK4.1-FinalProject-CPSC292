@@ -37,7 +37,10 @@ The 'data/' folder contains datasets used in this project:
 
 ## How to Reproduce the Report
 1. **Clone Repository**
--Clone the repository using git clone 
+-Clone the repository using git clone:
+
+git clone https://github.com/sarah-im12/SK4.1-FinalProject-CPSC292.git
+
 2. **Environment set up**
 -R studio is required to run the project. 
 -Open 'SK4.1Project.Rproj file' (make sure working directory is set to the main project folder) to establish the project environment 
