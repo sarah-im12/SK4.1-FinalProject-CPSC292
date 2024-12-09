@@ -5,7 +5,7 @@ output: html_document
 date: "2024-12-04"
 ---
 
-## Do voters want Republicans or Democrats in Congress? 
+# Do voters want Republicans or Democrats in Congress? 
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 # Loading required libraries
@@ -14,6 +14,8 @@ library(janitor)
 library(ggplot2)
 library(dplyr)
 ```
+
+
 ### Importing and Cleaning Raw Data for the analysis of the Democratic Party 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 ballot.data <- read.csv("data/generic_polllist (1).csv")
@@ -40,7 +42,7 @@ ballot.long <- pivot_longer(ballot.wide, cols = !days_since_origin, names_to = "
 ```
 
 
-### Properly Formatted Data was plotted using ggplot to represent the Democratic Approval Rates
+### Data was plotted using ggplot to represent the Democratic Approval Rates
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE, fig.cap = "Figure 1. Plot of Approval Rating from Polls vs. Days Since Origin of polls. Plot demonstrates the change in approval ratings of the democratic party in congress over time since the origin of the polls on 11/21/20. The democratic party experienced a mean approval rating of around 43.9% with the range being approximately 11.3% (min. value = 38.3%, highest value=50.0%) from 11/21/20 to 11/05/2022."}
 
@@ -71,7 +73,7 @@ ballot.wide2 <- pivot_wider(ballot.Approve2, names_from = startdate, values_from
 ballot.long2 <- pivot_longer(ballot.wide2, cols = !days_since_origin, names_to = "startdate", values_to = "rep") 
 ```
 
-### Properly Formatted Data was plotted using ggplot to represent the Republican Party Approval Rates
+### Data was plotted using ggplot to represent the Republican Party Approval Rates
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE, fig.cap = "Figure 2. Plot of Approval Rating from Polls vs. Days Since Origin of polls. Plot demonstrates the change in average approval ratings of the republican party in congress over time since the origin of the polls on 11/21/20. The republican party experienced a mean approval rating of around 42.28% with the range being 14.7% (lowest rating = 35.0%, highest value = 49.7%) from 11/21/20 to 11/05/22."}
 vis2 <- ggplot(ballot.long2, aes(x=days_since_origin, y=rep)) + geom_point(color = "red", pch=19, alpha=0.5) + labs(x = "Days Since Origin of Polls (11/21/20)", y = "Approval Rating from Polls (%)", title = "Approval of Republican Party in Congress Over Time") + theme_minimal() + theme(plot.title = element_text(hjust = 0.5))
