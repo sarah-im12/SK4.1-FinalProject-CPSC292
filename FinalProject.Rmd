@@ -48,11 +48,16 @@ vis1 <- ggplot(ballot.long, aes(x=days_since_origin, y=dem)) + geom_point(color 
 vis1
 ```
 
-### Importing and Cleaning Raw Data for the analysis of the Republican Party 
+### Cleaning Raw Data for the analysis of the Republican Party 
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 ballot.Approve2 <- ballot.data %>%
   clean_names() %>%
   select(startdate, rep) %>%
   na.omit()
+
+ballot.Approve2$startdate <- as.Date(ballot.Approve2$startdate, format = "%m/%d/%Y")
+origin_date <- as.Date("11/21/2020", format = "%m/%d/%Y")
+ballot.Approve2$days_since_origin <- as.numeric(ballot.Approve2$startdate - origin_date)
+ballot.Approve2
 ```
