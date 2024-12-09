@@ -70,3 +70,10 @@ ballot.Approve2
 ballot.wide2 <- pivot_wider(ballot.Approve2, names_from = startdate, values_from = rep, values_fn=mean) 
 ballot.long2 <- pivot_longer(ballot.wide2, cols = !days_since_origin, names_to = "startdate", values_to = "rep") 
 ```
+
+### Properly Formatted Data was plotted using ggplot 
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+vis2 <- ggplot(ballot.long2, aes(x=days_since_origin, y=rep)) + geom_point(color = "red", pch=19, alpha=0.5) + labs(x = "Days Since Origin of Polls (11/21/20)", y = "Approval Rating from Polls (%)", title = "Approval of Republican Party in Congress Over Time") + theme_minimal() + theme(plot.title = element_text(hjust = 0.5))
+vis2
+```
