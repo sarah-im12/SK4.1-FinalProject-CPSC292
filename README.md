@@ -37,10 +37,10 @@ The 'data/' folder contains datasets used in this project:
 
 ## How to Reproduce the Report
 1. **Clone Repository**
--Clone the repository
+-Clone the repository using git clone 
 2. **Environment set up**
 -R studio is required to run the project. 
--Open 'SK4.1Project.Rproj file' (make sure working directory is set to the main project folder) 
+-Open 'SK4.1Project.Rproj file' (make sure working directory is set to the main project folder) to establish the project environment 
 3. **Project set up**
 -Install necessary packages of "dplyr", "tidyr", "ggplot2", "janitor". 
 4. **Double check data files**
@@ -48,4 +48,6 @@ The 'data/' folder contains datasets used in this project:
 4. **Run the Project** 
 -Open 'FinalProject.RMD' file in Rstudio
 -Generate the report by knitting the file in HTML or DOC format
+5. **Check the results**
+-Verify that the vis1.pdf and vis2.pdf are in the results folder 
   
