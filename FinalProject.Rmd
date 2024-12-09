@@ -127,5 +127,9 @@ vis2
 
 Figure 1 depicts the Democratic Party's approval ratings over time. Based on the data trends and visualizations, the democratic party’s approval was observed to have fluctuated within an approximate range of 12 percent with the highest approval rating of 50% and the lowest approval rating of 38.3%. The average approval rating of the democratic party was approximately 43.9%. Figure 2 depicts the Republican Party's approval ratings overtime. The republican party’s approval ratings exhibited a broader range with the highest approval rating of 49.7% and the lowest approval rating of 35.0%. The average approval rating of the republican party was approximately 42.28%. 
 
+## Conclusion 
+
+Overall, both political parties exhibited similar average approval ratings with the democratic party demonstrating slightly higher average approval ratings over time. The democratic party sustained a higher average approval rating (43.9%) compared to the republican party (42.28%). However, there are not enough substantial differences between the two parties that establishes a clear preference of one party over the other during the time period. 
+
 
 ### References: 
