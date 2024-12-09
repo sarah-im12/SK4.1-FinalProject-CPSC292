@@ -42,7 +42,8 @@ ballot.long <- pivot_longer(ballot.wide, cols = !days_since_origin, names_to = "
 
 ### Properly Formatted Data was plotted using ggplot 
 
-```{r echo=FALSE, message=FALSE, warning=FALSE}
+```{r echo=FALSE, message=FALSE, warning=FALSE, fig.cap = "Figure 1. Plot of Approval Rating from Polls vs. Days Since Origin of polls. Plot demonstrates the change in approval ratings of the democratic party in congress over time since the origin of the polls on 11/21/20. The democratic party experienced a mean approval rating of around 43.9% with the range being approximately 11.3% (min. value = 38.3%, highest value=50.0%) from 11/21/20 to 11/05/2022."}
+
 vis1 <- ggplot(ballot.long, aes(x=days_since_origin, y=dem)) + geom_point(color = "blue", pch=19, alpha=0.5) + labs(x = "Days Since Origin of Polls (11/21/20)", y = "Approval Rating from Polls (%)", title = "Approval of Democratic Party in Congress Over Time") + theme_minimal() + theme(plot.title = element_text(hjust = 0.5)) + ylim(35,50)
 vis1
 ```
