@@ -81,10 +81,10 @@ vis2
 ### Reproduced the visualizations as PDF
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
-ggsave(filename = "results/figures/vis1.pdf", plot = vis1, device = "pdf", 
+ggsave(filename = "results/vis1.pdf", plot = vis1, device = "pdf", 
        width = 6, height = 5, units = "in")
 
-ggsave(filename = "results/figures/vis2.pdf", plot = vis2, device = "pdf", 
+ggsave(filename = "results/vis2.pdf", plot = vis2, device = "pdf", 
        width = 6, height = 5, units = "in")
 
 
