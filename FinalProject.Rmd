@@ -61,10 +61,9 @@ ballot.long <- pivot_longer(ballot.wide, cols = !days_since_origin, names_to = "
 
 ### 4. Visualization of the data using ggplot to represent the Democratic Approval Rates
 
-```{r echo=FALSE, message=FALSE, warning=FALSE, fig.cap = "Figure 1. Plot of Approval Rating from Polls vs. Days Since Origin of polls. Plot demonstrates the change in approval ratings of the democratic party in congress over time since the origin of the polls on 11/21/20. The democratic party experienced a mean approval rating of around 43.9% with the range being approximately 11.3% (min. value = 38.3%, highest value=50.0%) from 11/21/20 to 11/05/2022."}
+```{r echo=FALSE, message=FALSE, warning=FALSE}
 
 vis1 <- ggplot(ballot.long, aes(x=days_since_origin, y=dem)) + geom_point(color = "blue", pch=19, alpha=0.5) + labs(x = "Days Since Origin of Polls (11/21/20)", y = "Approval Rating from Polls (%)", title = "Approval of Democratic Party in Congress Over Time") + theme_minimal() + theme(plot.title = element_text(hjust = 0.5)) + ylim(35,50)
-vis1
 ```
 
 ### 5. Data Cleaning of the Republican Party 
@@ -91,9 +90,8 @@ ballot.long2 <- pivot_longer(ballot.wide2, cols = !days_since_origin, names_to =
 
 ### 7. Visualization of the data using ggplot to represent the Republican Approval Rates
 
-```{r echo=FALSE, message=FALSE, warning=FALSE, fig.cap = "Figure 2. Plot of Approval Rating from Polls vs. Days Since Origin of polls. Plot demonstrates the change in average approval ratings of the republican party in congress over time since the origin of the polls on 11/21/20. The republican party experienced a mean approval rating of around 42.28% with the range being 14.7% (lowest rating = 35.0%, highest value = 49.7%) from 11/21/20 to 11/05/22."}
+```{r echo=FALSE, message=FALSE, warning=FALSE}
 vis2 <- ggplot(ballot.long2, aes(x=days_since_origin, y=rep)) + geom_point(color = "red", pch=19, alpha=0.5) + labs(x = "Days Since Origin of Polls (11/21/20)", y = "Approval Rating from Polls (%)", title = "Approval of Republican Party in Congress Over Time") + theme_minimal() + theme(plot.title = element_text(hjust = 0.5))
-vis2
 ```
 
 ### Reproduced the visualizations as PDF
@@ -107,6 +105,27 @@ ggsave(filename = "results/vis2.pdf", plot = vis2, device = "pdf",
 
 
 ```
+
+## Results 
+
+### The Democratic Party 
+
+```{r echo=FALSE, message=FALSE, warning=FALSE,, fig.cap = "Figure 1. Plot of Approval Rating from Polls vs. Days Since Origin of polls. Plot demonstrates the change in approval ratings of the democratic party in congress over time since the origin of the polls on 11/21/20. The democratic party experienced a mean approval rating of around 43.9% with the range being approximately 11.3% (min. value = 38.3%, highest value=50.0%) from 11/21/20 to 11/05/2022."}
+
+vis1
+```
+
+### The Republican Party
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, fig.cap = "Figure 2. Plot of Approval Rating from Polls vs. Days Since Origin of polls. Plot demonstrates the change in average approval ratings of the republican party in congress over time since the origin of the polls on 11/21/20. The republican party experienced a mean approval rating of around 42.28% with the range being 14.7% (lowest rating = 35.0%, highest value = 49.7%) from 11/21/20 to 11/05/22."}
+
+vis2
+```
+
+
+## Discussion 
+
+Figure 1 depicts the Democratic Party's approval ratings over time. Based on the data trends and visualizations, the democratic party’s approval was observed to have fluctuated within an approximate range of 12 percent with the highest approval rating of 50% and the lowest approval rating of 38.3%. The average approval rating of the democratic party was approximately 43.9%. Figure 2 depicts the Republican Party's approval ratings overtime. The republican party’s approval ratings exhibited a broader range with the highest approval rating of 49.7% and the lowest approval rating of 35.0%. The average approval rating of the republican party was approximately 42.28%. 
 
 
 ### References: 
