@@ -18,7 +18,6 @@ This research focuses on the question:
 How have approval ratings between the Democratic and Republican parties in Congress changed over time? 
 
 
-
 ### Load required libraries:
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
