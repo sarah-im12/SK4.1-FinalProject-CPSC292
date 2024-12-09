@@ -13,7 +13,9 @@ This project utlizes data from a CSV file and demonstrates the approval ratings 
 ## Project Structure
 The SK4.1Project Repository is organized such that: 
 -'SK4.1Project.Rproj' 
--'FinalProject.Rmd' 
+
+-'FinalProject.Rmd': Main R Markdown File containing the lab   report and full code for data analysis. 
+
 -'data/'
 -'results/'
 -'doc/'
