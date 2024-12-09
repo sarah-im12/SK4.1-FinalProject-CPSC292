@@ -14,7 +14,7 @@ library(janitor)
 library(ggplot2)
 library(dplyr)
 ```
-### Importing and Cleaning Raw Data
+### Importing and Cleaning Raw Data for the analysis of the Democratic Party 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 ballot.data <- read.csv("data/generic_polllist (1).csv")
 
@@ -46,4 +46,13 @@ ballot.long <- pivot_longer(ballot.wide, cols = !days_since_origin, names_to = "
 
 vis1 <- ggplot(ballot.long, aes(x=days_since_origin, y=dem)) + geom_point(color = "blue", pch=19, alpha=0.5) + labs(x = "Days Since Origin of Polls (11/21/20)", y = "Approval Rating from Polls (%)", title = "Approval of Democratic Party in Congress Over Time") + theme_minimal() + theme(plot.title = element_text(hjust = 0.5)) + ylim(35,50)
 vis1
+```
+
+### Importing and Cleaning Raw Data for the analysis of the Republican Party 
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+ballot.Approve2 <- ballot.data %>%
+  clean_names() %>%
+  select(startdate, rep) %>%
+  na.omit()
 ```
