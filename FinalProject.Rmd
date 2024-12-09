@@ -61,3 +61,12 @@ origin_date <- as.Date("11/21/2020", format = "%m/%d/%Y")
 ballot.Approve2$days_since_origin <- as.numeric(ballot.Approve2$startdate - origin_date)
 ballot.Approve2
 ```
+
+
+### Further converted data set format for easier plotting 
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+ballot.Approve2
+ballot.wide2 <- pivot_wider(ballot.Approve2, names_from = startdate, values_from = rep, values_fn=mean) 
+ballot.long2 <- pivot_longer(ballot.wide2, cols = !days_since_origin, names_to = "startdate", values_to = "rep") 
+```
