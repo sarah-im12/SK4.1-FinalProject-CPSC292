@@ -12,13 +12,16 @@ This project utlizes data from a CSV file and demonstrates the approval ratings 
 
 ## Project Structure
 The SK4.1Project Repository is organized such that: 
--'SK4.1Project.Rproj' 
 
--'FinalProject.Rmd': Main R Markdown File containing the lab   report and full code for data analysis. 
-
--'data/'
--'results/'
--'doc/'
+-**'SK4.1Project.Rproj'**: Rstudio project file necessary to set up working directory and environment for this project 
+-**'FinalProject.Rmd'**: Main R Markdown File containing the lab report and full code for data cleaning, visualization, and analysis. 
+-**'data/'**: Contains Raw data file used for data analysis. 
+    -'generic_polllist(1).csv': Data set from FiveThirtyEight contains raw data of public generic congressional ballot results 
+-**'results/'**: Contains the output of the visualizations produced in the code. 
+    -'vis1.pdf': Scatter plot of Democratic Party's Approval Ratings Over time
+    -'vis2.pdf': Scatter plot of Republican Party's Approval Ratings Over Time
+-**'doc/'**: Contains citations of all references and datasets used in this project 
+    -'myrefs.bib': full bibliography of all references 
 
 
 ## Data 
