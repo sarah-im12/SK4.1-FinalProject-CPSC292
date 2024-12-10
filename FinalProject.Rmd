@@ -19,9 +19,9 @@ How have approval ratings between the Democratic and Republican parties in Congr
 
 ## Analysis 
 
-In this study, the dataset was imported from FiveThirtyEight’s generic congressional ballots which contained voter ratings from November 2020 to November 2022. The data set was uploaded onto R studio, processed, and cleaned by standardizing the column names using clean_names(). Data points for the specific political party (dem or rep) were selected using select(). Missing values were removed from the original data set using na.omit(). New data sets were created per political party for the cleaned data (ballot.Approve and ballot.Approve2) Furthermore, the dates from the original dataset were transformed and formatted to calculate the number of days since the origin date of the polls (11/21/2020) using as.Date and origin_date to allow for better visualization of data trends. For plotting the visualizations, the data was transformed using pivot_wider and pivot_longer to plot the approval ratings of both parties separately. The ggplot2 package was used to plot the data and days since origin versus the approval ratings for each respected political party. The theme and points were adjusted using theme_minimal() and geom_point to promote visibility. For the visualization for the democratic party, the data points are represented in blue and demonstrate the daily average approval ratings. For the visualization for the republican party, the data points are represented in red and demonstrate the daily average approval ratings. 
+In this study, the dataset was imported from FiveThirtyEight’s generic congressional ballots which contained voter ratings from November 2020 to November 2022. First off, the required libary packsges tidyr, janitor, ggplot2, and dplyr were loaded.The data set was uploaded onto R studio, processed, and cleaned by standardizing the column names using clean_names(). Data points for the specific political party (dem or rep) were selected using select(). Missing values were removed from the original data set using na.omit(). New data sets were created per political party for the cleaned data (ballot.Approve and ballot.Approve2) Furthermore, the dates from the original dataset were transformed and formatted to calculate the number of days since the origin date of the polls (11/21/2020) using as.Date and origin_date to allow for better visualization of data trends. For plotting the visualizations, the data was transformed using pivot_wider and pivot_longer to plot the approval ratings of both parties separately. The ggplot2 package was used to plot the data and days since origin versus the approval ratings for each respected political party. The theme and points were adjusted using theme_minimal() and geom_point to promote visibility. For the visualization for the democratic party, the data points are represented in blue and demonstrate the daily average approval ratings. For the visualization for the republican party, the data points are represented in red and demonstrate the daily average approval ratings. 
 
-### 1. Load required libraries:
+
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 # Loading required libraries
@@ -31,9 +31,8 @@ library(ggplot2)
 library(dplyr)
 ```
 
-
-### 2. Data Import and Data Cleaning of the Democratic Party 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
+# Data Import and Data Cleaning of the Democratic Party 
 ballot.data <- read.csv("data/generic_polllist (1).csv")
 
 ballot.Approve <- ballot.data %>%
@@ -44,29 +43,26 @@ ballot.Approve <- ballot.data %>%
 ballot.Approve$startdate <- as.Date(ballot.Approve$startdate, format = "%m/%d/%Y")
 origin_date <- as.Date("11/21/2020", format = "%m/%d/%Y")
 ballot.Approve$days_since_origin <- as.numeric(ballot.Approve$startdate - origin_date)
-
-ballot.Approve
 ```
-### 3. Data Transformation: Conversion of the Data set 
+
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
-ballot.Approve
+# Data Transformation: Conversion of the Data set 
 ballot.wide <- pivot_wider(ballot.Approve, names_from = startdate, values_from = dem, values_fn=mean) 
-ballot.wide
 
 ballot.long <- pivot_longer(ballot.wide, cols = !days_since_origin, names_to = "startdate", values_to = "dem")
 ```
 
 
-### 4. Visualization of the data using ggplot to represent the Democratic Approval Rates
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
-
+# Visualization of the data using ggplot to represent the Democratic Approval Rates
 vis1 <- ggplot(ballot.long, aes(x=days_since_origin, y=dem)) + geom_point(color = "blue", pch=19, alpha=0.5) + labs(x = "Days Since Origin of Polls (11/21/20)", y = "Approval Rating from Polls (%)", title = "Approval of Democratic Party in Congress Over Time") + theme_minimal() + theme(plot.title = element_text(hjust = 0.5)) + ylim(35,50)
 ```
 
-### 5. Data Cleaning of the Republican Party 
+
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
+# Data Cleaning of the Republican Party 
 ballot.Approve2 <- ballot.data %>%
   clean_names() %>%
   select(startdate, rep) %>%
@@ -75,27 +71,24 @@ ballot.Approve2 <- ballot.data %>%
 ballot.Approve2$startdate <- as.Date(ballot.Approve2$startdate, format = "%m/%d/%Y")
 origin_date <- as.Date("11/21/2020", format = "%m/%d/%Y")
 ballot.Approve2$days_since_origin <- as.numeric(ballot.Approve2$startdate - origin_date)
-ballot.Approve2
 ```
 
 
-### 6. Data Transformation: Conversion of the Data set  
-
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
-ballot.Approve2
+# Data Transformation: Conversion of the Data set  
 ballot.wide2 <- pivot_wider(ballot.Approve2, names_from = startdate, values_from = rep, values_fn=mean) 
 ballot.long2 <- pivot_longer(ballot.wide2, cols = !days_since_origin, names_to = "startdate", values_to = "rep") 
 ```
 
-### 7. Visualization of the data using ggplot to represent the Republican Approval Rates
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
+# Visualization of the data using ggplot to represent the Republican Approval Rates
 vis2 <- ggplot(ballot.long2, aes(x=days_since_origin, y=rep)) + geom_point(color = "red", pch=19, alpha=0.5) + labs(x = "Days Since Origin of Polls (11/21/20)", y = "Approval Rating from Polls (%)", title = "Approval of Republican Party in Congress Over Time") + theme_minimal() + theme(plot.title = element_text(hjust = 0.5))
 ```
 
-### Reproduced the visualizations as PDF
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
+# Reproduced the visualizations as PDF
 ggsave(filename = "results/vis1.pdf", plot = vis1, device = "pdf", 
        width = 6, height = 5, units = "in")
 
